@@ -3,41 +3,41 @@ package completejava.chap10.innerclasses.localclass;
 import java.util.Scanner;
 
 public class Main {
-	
+
 	private static Scanner scanner = new Scanner(System.in);
 	private static Button btnPrint = new Button("Print");
-	
+
 	public static void main(String[] args) {
-		// Æ¯º°ÇÑ °æ¿ì ÇÑ¹ø¸¸ »ç¿ëÇÒ °æ¿ì ´ÙÀ½°ú °°ÀÌ ·ÎÄÃ Å¬·¡½º·Î Á¤ÀÇ
-		class ClickListener implements Button.OnClickListener {			
+		// íŠ¹ë³„í•œ ê²½ìš° í•œë²ˆë§Œ ì‚¬ìš©í•  ê²½ìš° ë‹¤ìŒê³¼ ê°™ì´ ë¡œì»¬ í´ë˜ìŠ¤ë¡œ ì •ì˜
+		class ClickListener implements Button.OnClickListener {
 			public ClickListener() {
 				System.out.println("I've been attached");
 			}
 
 			@Override
 			public void onClick(String title) {
-				System.out.println(title + " was clicked");			
+				System.out.println(title + " was clicked");
 			}
 		}
-		
+
 		btnPrint.setOnClickListener(new ClickListener());
 		listen();
 	}
-	
+
 	private static void listen() {
 		boolean quit = false;
-		
+
 		while(!quit) {
 			int choice = scanner.nextInt();
 			scanner.nextLine();
-			
+
 			switch(choice) {
-			case 0:
-				quit = true;
-				break;
-			case 1:
-				btnPrint.onClick();
-				break;				
+				case 0:
+					quit = true;
+					break;
+				case 1:
+					btnPrint.onClick();
+					break;
 			}
 		}
 	}
